@@ -1,5 +1,7 @@
 index.html: talk.md
 	python refreeze/freeze.py
+	cp index.html /tmp
+	cat /tmp/index.html | sed "s;img/;/scilibs/img/;" > index.html
 
 test:
 	python -m pytest -vx --doctest-glob '*.md'
